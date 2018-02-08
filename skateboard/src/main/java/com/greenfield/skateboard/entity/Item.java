@@ -36,4 +36,11 @@ public class Item {
   public void setDescription(String description) {
     this.description = description;
   }
+
+@Override
+public String toString() {
+	return "Item [id=" + id + ", checked=" + checked + ", description=" + description + "]";
+}
+  
+  
 }
