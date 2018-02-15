@@ -12,7 +12,17 @@ public class Item {
   private boolean checked;
   @Column
   private String description;
-
+  
+  public Item(){
+	  super();
+  }
+  public Item(Integer id, boolean checked,String description){
+	  super();
+	  this.id=id;
+	  this.checked=checked;
+	  this.description=description;
+  }
+  
   public Integer getId() {
     return id;
   }
