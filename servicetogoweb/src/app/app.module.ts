@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, InjectionToken } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -16,11 +16,11 @@ import { AppRouteModule } from './approute.module';
 import { AuthService } from './shared/auth.service';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 
-
+export const REST_URL = new InjectionToken("rest_url");
 @NgModule({
   declarations: [
-    AppComponent, 
-    HeaderComponent, 
+    AppComponent,
+    HeaderComponent,
     HomeComponent,
     FaqComponent,
     HowitworksComponent,
@@ -33,7 +33,8 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
   imports: [
     BrowserModule, FormsModule, HttpModule, AppRouteModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,
+    { provide: REST_URL, useValue: "http://localhost:3500" }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
